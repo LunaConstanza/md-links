@@ -1,6 +1,20 @@
 {
-  "name": "md-links",
+  "name": "lunaconstanza-mdlinks",
   "version": "0.1.0",
+  "description": "Módulo para validar links de archivos Markdown.",
+  "main": "./index.js",
+  "author": {
+    "name": "Luna González",
+    "email": "lunagonb@gmail.com",
+    "url": "https://www.linkedin.com/in/lunaconstanza/"
+  },
+  "bin": {
+    "mdLinks": "./cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LunaConstanza/MI-MD-LINKS"
+  },
   "engines": {
     "node": ">=16.x"
   },
@@ -8,5 +22,9 @@
     "createdAt": "2023-04-17T15:20:58.761Z",
     "version": "6.1.1",
     "commit": "ee8564d1261b2e9c9842d13f9ac49b2624b2ee74"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "node-fetch": "^2.6.9"
   }
 }
