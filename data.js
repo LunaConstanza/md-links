@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 const path = require('node:path');
 const color = require('colors');
 
+
 const existsPath = path => {
     return new Promise((resolve, reject) => {
         fs.access(path, fs.constants.F_OK, (err => err ? reject(false) : resolve(true)));
@@ -146,7 +147,7 @@ const readFile = file => {
 }
 
 const extractionLinks = array => {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         // console.log('array de archivos ', array);
         const allLinks = [];
         const count = array.length - 1;
@@ -158,6 +159,7 @@ const extractionLinks = array => {
                 })
                 .catch(err => {
                     console.log(color.bold.red(err));
+                    // reject(err)
                 }).finally(() => {
                     index++
                     if (index <= count) {
