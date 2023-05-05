@@ -4,7 +4,6 @@ const fetch = require('node-fetch');
 const path = require('node:path');
 const color = require('colors');
 
-
 const existsPath = path => {
     return new Promise((resolve, reject) => {
         fs.access(path, fs.constants.F_OK, (err => err ? reject(false) : resolve(true)));
@@ -34,7 +33,6 @@ const pathResolve = (file, dir) => {
         return path.resolve(dir, file);
     }
 }
-
 
 const readDir = dir => fs.readdirSync(dir, 'utf8')
 

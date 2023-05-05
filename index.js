@@ -43,7 +43,7 @@ const mdLinks = (path, option) => {
                         if (isMD(path)) {
                             extractionLinks([path])
                                 .then(res => {
-                                    console.log('Analizando...')
+                                    console.log(gradient.cristal('Analizando...'))
                                     if (option === undefined) {
                                         resolve(res);
                                     } else if (option === '--validate') {
@@ -52,6 +52,8 @@ const mdLinks = (path, option) => {
                                         resolve(stats(res))
                                     } else if (option === '--stats --validate') {
                                         dataLinks(res).then(res => resolve(stats(res, '--validate')))
+                                    } else if (option === '--brokens'){
+                                        dataLinks(res).then(res => resolve(stats(res, option)))
                                     }
                                 })
                         } else {

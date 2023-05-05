@@ -87,7 +87,7 @@ describe('La función existsPath valida si la ruta existe.', () => {
     it('Debería retornar una función', () => {
       expect(typeof readDir).toBe('function');
     });
-    it('Debería retornar un array con archivos de un dorectorio.', () => {
+    it('Debería retornar un array con archivos de un directorio.', () => {
       const arrayFiles = [
         'carpeta2-prueba',
         'prueba1.md',
@@ -164,31 +164,31 @@ describe('La función existsPath valida si la ruta existe.', () => {
       ];
       const arrayLinks2 = [
         {
-          file: 'prueba3.md',
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\carpeta-prueba\\carpeta2-prueba\\prueba3.md',
           line: 1,
           text: 'Markdown',
           href: 'https://es.wikipedia.org/wiki/Markdown'
         },
         {
-          file: 'prueba2.md',
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\carpeta-prueba\\prueba2.md',
           line: 1,
           text: 'Markdown',
           href: 'https://es.wikipedia.org/wiki/Markdown'
         },
         {
-          file: 'prueba2.md',
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\carpeta-prueba\\prueba2.md',
           line: 6,
           text: 'md-links',
           href: 'https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg'
         },
         {
-          file: 'prueba2.md',
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\carpeta-prueba\\prueba2.md',
           line: 7,
           text: 'Linea de comando CLI',
           href: 'https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e'
         },
         {
-          file: 'prueba2.md',
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\carpeta-prueba\\prueba2.md',
           line: 8,
           text: 'Módulos, librerías, paquetes, frameworks... ¿cuál ',
           href: 'http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175'
@@ -205,25 +205,25 @@ describe('La función existsPath valida si la ruta existe.', () => {
     it('Debería retornar un array con objetos de cada link y su estado.', () => {
       const arrayLinks1 = [
         {
-          file: 'prueba0.md',
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
           line: 31,
           text: 'md-links',
           href: 'https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg'
         },
         {
-          file: 'prueba0.md',
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
           line: 33,
           text: 'Módulos, librerías, paquetes, frameworks... ¿cuál ',
           href: 'http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175'
         },
         {
-          file: 'prueba0.md',
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
           line: 36,
           text: 'Recursión o Recursividad - ',
           href: 'https://medium.com/laboratoria-developers/recursi%C3%B3n-o-recursiv'
         },
         {
-          file: 'prueba0.md',
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
           line: 38,
           text: 'Módulos, librerías, paquetes, frameworks... ¿cuál ',
           href: 'http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175'
@@ -231,7 +231,7 @@ describe('La función existsPath valida si la ruta existe.', () => {
       ];
       const arrayDataLinks1 = [
         {
-          file: 'prueba0.md',
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
           line: 31,
           text: 'md-links',
           href: 'https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg',
@@ -239,7 +239,7 @@ describe('La función existsPath valida si la ruta existe.', () => {
           condition: 'ok'
         },
         {
-          file: 'prueba0.md',
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
           line: 33,
           text: 'Módulos, librerías, paquetes, frameworks... ¿cuál ',
           href: 'http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175',
@@ -247,7 +247,7 @@ describe('La función existsPath valida si la ruta existe.', () => {
           condition: 'fail'
         },
         {
-          file: 'prueba0.md',
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
           line: 36,
           text: 'Recursión o Recursividad - ',
           href: 'https://medium.com/laboratoria-developers/recursi%C3%B3n-o-recursiv',
@@ -255,7 +255,7 @@ describe('La función existsPath valida si la ruta existe.', () => {
           condition: 'ok'
         },
         {
-          file: 'prueba0.md',
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
           line: 38,
           text: 'Módulos, librerías, paquetes, frameworks... ¿cuál ',
           href: 'http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175',
@@ -270,7 +270,7 @@ describe('La función existsPath valida si la ruta existe.', () => {
   describe('La función stats retorna un objeto con el total de links, cuántos están rotos y son únicos.', () => {
     const arrayDataLinks1 = [
       {
-        file: 'prueba0.md',
+        file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
         line: 31,
         text: 'md-links',
         href: 'https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg',
@@ -278,7 +278,7 @@ describe('La función existsPath valida si la ruta existe.', () => {
         condition: 'ok'
       },
       {
-        file: 'prueba0.md',
+        file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
         line: 33,
         text: 'Módulos, librerías, paquetes, frameworks... ¿cuál ',
         href: 'http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175',
@@ -286,7 +286,7 @@ describe('La función existsPath valida si la ruta existe.', () => {
         condition: 'fail'
       },
       {
-        file: 'prueba0.md',
+        file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
         line: 36,
         text: 'Recursión o Recursividad - ',
         href: 'https://medium.com/laboratoria-developers/recursi%C3%B3n-o-recursiv',
@@ -294,7 +294,7 @@ describe('La función existsPath valida si la ruta existe.', () => {
         condition: 'ok'
       },
       {
-        file: 'prueba0.md',
+        file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
         line: 38,
         text: 'Módulos, librerías, paquetes, frameworks... ¿cuál ',
         href: 'http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175',
@@ -310,5 +310,26 @@ describe('La función existsPath valida si la ruta existe.', () => {
     });
     it('Debería retornar el total de links, cuántos están rotos y son únicos.', () => {
       expect(stats(arrayDataLinks1, '--validate')).toStrictEqual('Total: 4, Broken: 2, Unique: 3');
+    });
+    it('Debería retornar un array con los links rotos.', () => {
+      const arrayFail = [
+        {
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
+          line: 33,
+          text: 'Módulos, librerías, paquetes, frameworks... ¿cuál ',  
+          href: 'http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175',
+          status: 'No existe status',
+          condition: 'fail'
+        },
+        {
+          file: 'C:\\Users\\Luna Contanza\\Documents\\Laboratoria Laboral\\REPO LABORATORIA\\MI-md-links\\prueba0.md',
+          line: 38,
+          text: 'Módulos, librerías, paquetes, frameworks... ¿cuál ',  
+          href: 'http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175',
+          status: 'No existe status',
+          condition: 'fail'
+        }
+      ]
+      expect(stats(arrayDataLinks1, '--brokens')).toStrictEqual(arrayFail);
     });
   });
