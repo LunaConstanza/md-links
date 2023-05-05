@@ -1,5 +1,5 @@
 {
-  "name": "lunaconstanza-mdlinks",
+  "name": "lunaconstanza-mdlinks2",
   "version": "0.1.0",
   "description": "Módulo para validar links de archivos Markdown.",
   "main": "./index.js",
@@ -27,5 +27,12 @@
     "colors": "^1.4.0",
     "gradient-string": "^2.0.2",
     "node-fetch": "^2.6.9"
+  },
+  "scripts": {
+    "test": "jest --coverage --verbose",
+    "dev": "node ./cli.js"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }

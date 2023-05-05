@@ -15,11 +15,11 @@ const isDir = path => {
     return new Promise((resolve) => {
         fs.stat(path, (err, stats) => {
             resolve(stats.isDirectory())
-            // console.log(stats.isDirectory());
-            // console.log('error de isDir ', err);
         });
     });
 };
+
+const isFile = inputPath => fs.lstatSync(inputPath).isFile();
 
 const isMD = file => path.extname(file) === '.md';
 
@@ -35,82 +35,24 @@ const pathResolve = (file, dir) => {
     }
 }
 
+
 const readDir = dir => fs.readdirSync(dir, 'utf8')
 
 let arrayMD = [];
 const extractionFilesMD = dir => {
     return new Promise((resolve) => {
-        // isDir(dir).then(res => {
-        //     if (res) {
-                // const filesMD = [];
-                const files = readDir(dir);
-                files.filter(file => {
-                    if (isMD(file)) {
-                        arrayMD.push(pathResolve(file, dir));
-                    } else {
-                        const newPath = pathResolve(file, dir)
-                        extractionFilesMD(newPath);
-
-                        // isDir(newPath)
-                        //     .then((res) => {
-                        //         if(res){
-                        //             const newPath = pathResolve(file, dir)
-                        //             extractionFilesMD(newPath);
-
-                        //         }
-
-                        //     })
-                    }
-                })
-
-                // if (filesMD.length !== 0) {
-                //     arrayMD.push(filesMD);
-                // }
-                // console.log(arrayMD);
-                resolve(arrayMD);
-
-
-                // ITERADOR MANUAL ----------------------- no resuelto -------------
-                // const count = files.length - 1;
-                // let index = 0;
-                // const iteradorManual = (archivo) => {
-                //     console.log('el archivo: ', archivo);
-                //     if (isMD(archivo)) {
-                //         arrayMD.push(pathResolve(archivo, dir));
-                //         index++;
-                //         if (index <= count) {
-                //             iteradorManual(files[index]);
-                //         } else {
-                //             console.log(arrayMD);
-                //             resolve(arrayMD);
-                //         }
-                //     } else {
-                //         const newPathAbsolute = pathResolve(archivo, dir);
-                //         extractionFilesMD(newPathAbsolute)
-                //         .then(() => {
-                //             index++;
-                //             if (index <= count) {
-                //                 iteradorManual(files[index]);
-                //             } else {
-                //                 resolve(arrayMD);
-                //             }
-                //         }).catch(() => {
-                //             index++;
-                //             if (index <= count) {
-                //                 iteradorManual(files[index]);
-                //             } else {
-                //                 resolve(arrayMD);
-                //             }
-                //         })
-                //     }
-                // }
-                // iteradorManual(files[index]);
-                // FIN ITERADOR MANUAL ------------------ no resuelto ------------
-
-
-
-            // }
-        // })
+        const files = readDir(dir);
+        files.filter(file => {
+            const newPath = pathResolve(file, dir)
+            if(isFile(newPath)){
+                if (isMD(newPath)) {
+                    arrayMD.push(newPath);
+                }
+            } else {
+                extractionFilesMD(newPath);
+            }
+        })
+        resolve(arrayMD);
     })
 }
 
@@ -126,7 +68,7 @@ const readFile = file => {
                         let link = splitData[i].match(myRegExp);
                         if (link !== null) {
                             allLinks.push({
-                                'file': pathBasename(file),
+                                'file': file,
                                 'line': i + 1,
                                 'text': link[0].split(']')[0].substring(1, 51),
                                 'href': link[0].split(']')[1].slice(1, -1)
@@ -147,8 +89,7 @@ const readFile = file => {
 }
 
 const extractionLinks = array => {
-    return new Promise((resolve, reject) => {
-        // console.log('array de archivos ', array);
+    return new Promise((resolve) => {
         const allLinks = [];
         const count = array.length - 1;
         let index = 0;
@@ -170,19 +111,6 @@ const extractionLinks = array => {
                 });
         }
         iteradorManual(array[index]);
-        // array.forEach((file, index) => {
-        //     readFile(file)
-        //         .then(res => {
-        //             allLinks.push(res)
-        //             if (index === array.length-1) {
-        //                 resolve(allLinks);
-        //         })
-        //         .catch(err => {
-        //             console.log(err);
-        //         });
-        // });
-
-        // allLinks.push(links)
     })
 };
 
@@ -222,16 +150,11 @@ const stats = (links, extra) => {
     })
     const brokens = links.filter(link => link.condition === 'fail')
     if (extra === undefined) {
-        return {
-            Total: links.length,
-            Unique: uniques.length,
-        }
+        return `Total: ${links.length}, Unique: ${uniques.length}`;
     } else if (extra === '--validate') {
-        return {
-            Total: links.length,
-            Broken: brokens.length,
-            Unique: uniques.length,
-        }
+        return `Total: ${links.length}, Broken: ${brokens.length}, Unique: ${uniques.length}`;
+    } else if (extra === '--brokens'){
+        return brokens;
     }
 }
 
@@ -242,6 +165,8 @@ module.exports = {
     pathBasename,
     isDir,
     isMD,
+    readDir,
+    readFile,
     extractionFilesMD,
     extractionLinks,
     dataLinks,
