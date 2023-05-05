@@ -22,16 +22,22 @@ const mdLinks = (path, option) => {
                                     extractionLinks(res)
                                         .then(res => {
                                             console.log(gradient.cristal('Analizando...'));
-                                            if (option === undefined) {
-                                                resolve(res);
-                                            } else if (option === '--validate') {
-                                                resolve(dataLinks(res))
-                                            } else if (option === '--stats') {
-                                                dataLinks(res).then(res => resolve(stats(res)))
-                                            } else if (option === '--stats --validate') {
-                                                dataLinks(res).then(res => resolve(stats(res, '--validate')))
-                                            } else if (option === '--brokens'){
-                                                dataLinks(res).then(res => resolve(stats(res, option)))
+                                            switch (option) {
+                                                case undefined:
+                                                    resolve(res);
+                                                    break;
+                                                case '--validate':
+                                                    resolve(dataLinks(res))
+                                                    break;
+                                                case '--stats':
+                                                    dataLinks(res).then(res => resolve(stats(res)))
+                                                    break;
+                                                case '--stats --validate':
+                                                    dataLinks(res).then(res => resolve(stats(res, '--validate')))
+                                                    break;
+                                                case '--brokens':
+                                                    dataLinks(res).then(res => resolve(stats(res, option)))
+                                                    break;
                                             }
                                         })
                                 } else {
@@ -44,16 +50,22 @@ const mdLinks = (path, option) => {
                             extractionLinks([path])
                                 .then(res => {
                                     console.log(gradient.cristal('Analizando...'))
-                                    if (option === undefined) {
-                                        resolve(res);
-                                    } else if (option === '--validate') {
-                                        resolve(dataLinks(res))
-                                    } else if (option === '--stats') {
-                                        resolve(stats(res))
-                                    } else if (option === '--stats --validate') {
-                                        dataLinks(res).then(res => resolve(stats(res, '--validate')))
-                                    } else if (option === '--brokens'){
-                                        dataLinks(res).then(res => resolve(stats(res, option)))
+                                    switch (option) {
+                                        case undefined:
+                                            resolve(res);
+                                            break;
+                                        case '--validate':
+                                            resolve(dataLinks(res))
+                                            break;
+                                        case '--stats':
+                                            dataLinks(res).then(res => resolve(stats(res)))
+                                            break;
+                                        case '--stats --validate':
+                                            dataLinks(res).then(res => resolve(stats(res, '--validate')))
+                                            break;
+                                        case '--brokens':
+                                            dataLinks(res).then(res => resolve(stats(res, option)))
+                                            break;
                                     }
                                 })
                         } else {
