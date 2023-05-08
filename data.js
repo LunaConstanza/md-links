@@ -73,7 +73,7 @@ const readFile = file => {
                             })
                         }
                     }
-                    console.log(color.bold.cyan(`- En ${pathBasename(file)} existen ${allLinks.length} links para analizar.`));
+                    // console.log(color.bold.cyan(`- En ${pathBasename(file)} existen ${allLinks.length} links para analizar.`));
                     resolve(allLinks)
                 } else {
                     reject(`- En ${pathBasename(file)} no existen links para analizar.`);
@@ -97,7 +97,7 @@ const extractionLinks = array => {
                     allLinks.push(res)
                 })
                 .catch(err => {
-                    console.log(color.bold.red(err));
+                    // console.log(color.bold.red(err));
                     // reject(err)
                 }).finally(() => {
                     index++
